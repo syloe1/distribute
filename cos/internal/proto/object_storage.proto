@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package objectstorage;
+option go_package = "./;proto";
+
+message ChunkInfo {
+    string file_id = 1; // 唯一文件ID
+    string chunk_id = 2; // 唯一块id（去掉多余逗号，不影响编译但更规范）
+    bytes data = 3; // 块数据
+    int32 chunk_index = 4; // 块序号，用于合并
+    int32 total_chunks = 5; // 总块数
+}
+
+service ChunkService {
+    // 修复1：return → returns（复数形式）
+    // 修复2：{StoreChunkResponse} → (StoreChunkResponse)（用小括号包裹返回类型）
+    rpc StoreChunk(ChunkInfo) returns (StoreChunkResponse);
+    // 同上修复
+    rpc GetChunk(GetChunkRequest) returns (ChunkInfo);
+}
+
+message StoreChunkResponse {
+    bool success = 1;
+    string message = 2; 
+}
+
+message GetChunkRequest {
+    string file_id = 1;
+    string chunk_id = 2;
+}
+
+service ObjectService {
+    // 这里原本就用了 (返回类型)，但 return 要改成 returns
+    rpc UploadFile(stream ChunkInfo) returns (UploadFileResponse);
+    rpc DownloadFile(DownloadFileRequest) returns (stream ChunkInfo);
+}
+
+message UploadFileResponse {
+    bool success = 1;
+    string file_id = 2;
+    string message = 3;
+}
+
+message DownloadFileRequest {
+    string file_id = 1;
+    string save_path = 2;
+}

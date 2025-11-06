@@ -1,0 +1,37 @@
+中间件 Nginx/HAProxy 反向代理。CDN前端请求不会直接达到源站。
+ffmpeg -i video.m4s -i audio.m4s -c copy output.mp4
+kafka/rabbitMQ/rocketMQ 异步处理
+celery//sidekiq任务队列
+Mysql proxy/tidx 数据库分片，读写分离。  miniob运行起来了 ，
+lab0做完，做cppcling
+DB33
+atcoder abc379开始
+力扣树501 
+最短路
+牛客ROUND20结束
+牛客小白月赛 3开始
+蓝桥图论14
+acwing 线性DP
+蓝桥竞赛小白赛26开始
+牛客竞赛 小白118结束
+蓝桥杯开数学 11结束
+蓝桥杯基础算法
+蓝桥杯排序算法
+蓝桥杯搜索
+蓝桥杯DP基础
+蓝桥杯数学基础
+蓝桥杯DS基础
+图论基础
+DP 背包
+数学提高
+high DS 
+high 图论
+high dp 
+high permutation 
+cal geogery 
+high string 
+battle theory 
+Top 图论
+top string 
+top math 
+top DS
